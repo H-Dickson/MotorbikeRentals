@@ -1,4 +1,4 @@
-import { useState, useEffect} from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import styles from "./Bike.module.css";
 
 const slideStyles = {
@@ -10,7 +10,6 @@ const slideStyles = {
   backgroundPosition: "center",
   transition: "opacity 1s ease-in-out",
 };
-
 
 const sliderStyles = {
   position: "relative",
@@ -28,67 +27,66 @@ const dotStyle = {
   fontSize: "20px",
 };
 
-
-
 const ImageSlider = ({ slides }) => {
-   const [currentIndex, setCurrentIndex] = useState(0);
-   const [sliderHeight, setSliderHeight] = useState("50vh"); // Initial height
-   const [iconColor, setIconColor] = useState("black"); // Initial color
-   const [iconSize, setIconSize] = useState("55px"); // Initial distance
-   const [opacity, setOpacity] = useState(1);
- 
-   const updateSliderHeight = () => {
-     if (window.innerWidth < 800) {
-       setSliderHeight("30vh");
-       setIconColor("#ccc");
-       setIconSize("40px");
-     } else {
-       setSliderHeight("50vh");
-       setIconColor("black");
-         setIconSize("55px");
-     }
-   };
- 
-   useEffect(() => {
-     updateSliderHeight(); // Set initial height on component mount
- 
-     const handleResize = () => {
-       updateSliderHeight(); // Update height on window resize
-     };
- 
-     window.addEventListener("resize", handleResize);
- 
-     return () => {
-       window.removeEventListener("resize", handleResize);
-     };
-   }, []);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [sliderHeight, setSliderHeight] = useState("50vh");
+  const [iconColor, setIconColor] = useState("black");
+  const [iconSize, setIconSize] = useState("55px");
+  const [opacity, setOpacity] = useState(1);
 
-   const handleTransition = (nextIndex) => {
-      setOpacity(0); // Fade out the image
-      setTimeout(() => {
-        setCurrentIndex(nextIndex);
-        setOpacity(1); // Fade in the next image
-      }, 650); // Wait for the transition duration
+  const updateSliderHeight = useCallback(() => {
+    if (window.innerWidth < 800) {
+      setSliderHeight("30vh");
+      setIconColor("#ccc");
+      setIconSize("40px");
+    } else {
+      setSliderHeight("50vh");
+      setIconColor("black");
+      setIconSize("55px");
+    }
+  }, []);
+
+  useEffect(() => {
+    updateSliderHeight();
+
+    const handleResize = () => {
+      updateSliderHeight();
     };
-  
-    const goToPrevious = () => {
-      const newIndex = currentIndex === 0 ? slides.length - 1 : currentIndex - 1;
-      handleTransition(newIndex);
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
     };
-  
-    const goToNext = () => {
-      const newIndex = currentIndex === slides.length - 1 ? 0 : currentIndex + 1;
-      handleTransition(newIndex);
-    };
-  
-    useEffect(() => {
-      const interval = setInterval(goToNext, 5000); // Change slide every 5 seconds
-  
-      return () => clearInterval(interval);
-    }, [currentIndex, slides.length]);
-  const goToSlide = (slideIndex) => {
+  }, [updateSliderHeight]);
+
+  const handleTransition = useCallback((nextIndex) => {
+    setOpacity(0);
+    setTimeout(() => {
+      setCurrentIndex(nextIndex);
+      setOpacity(1);
+    }, 650);
+  }, []);
+
+  const goToPrevious = useCallback(() => {
+    const newIndex = currentIndex === 0 ? slides.length - 1 : currentIndex - 1;
+    handleTransition(newIndex);
+  }, [currentIndex, slides.length, handleTransition]);
+
+  const goToNext = useCallback(() => {
+    const newIndex = currentIndex === slides.length - 1 ? 0 : currentIndex + 1;
+    handleTransition(newIndex);
+  }, [currentIndex, slides.length, handleTransition]);
+
+  useEffect(() => {
+    const interval = setInterval(goToNext, 5000);
+
+    return () => clearInterval(interval);
+  }, [currentIndex, slides.length, goToNext]);
+
+  const goToSlide = useCallback((slideIndex) => {
     setCurrentIndex(slideIndex);
-  };
+  }, []);
 
   const rightArrowStyles = {
    position: "absolute",
