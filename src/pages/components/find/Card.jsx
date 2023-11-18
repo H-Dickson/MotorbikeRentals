@@ -6,7 +6,7 @@ const Card = ({ bike }) => {
     <div className={styles.card}>
       <a href={"/bikes/" + bike.id}>
         {/* Assuming that the first image in the array is the primary one */}
-        <img src={"./images/"+bike.image[0]}/>
+        <img src={"./images/"+bike.image[0]} alt={`${bike.model} ${bike.make}`}/>
       {/* Add more fields as needed */}
       </a>
     </div>

@@ -85,7 +85,7 @@ const ImageSlider = ({ slides }) => {
       setTimeout(() => {
         setCurrentIndex(nextIndex);
         setOpacity(1); // Fade in the next image
-      }, 1000); // Wait for the transition duration
+      }, 650); // Wait for the transition duration
     };
   
     const goToPrevious = () => {

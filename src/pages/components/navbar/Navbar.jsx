@@ -1,6 +1,6 @@
 import { React, useState } from 'react';
 import styles from './Navbar.module.css';
-import {AiOutlineMenu, AiOutlineClose, AiOutlineSearch, AiOutlineUser} from 'react-icons/ai';
+import {AiOutlineMenu, AiOutlineClose} from 'react-icons/ai';
 
 
 const Navbar = () => {

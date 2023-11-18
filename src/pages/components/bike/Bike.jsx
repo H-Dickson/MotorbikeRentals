@@ -12,6 +12,9 @@ const Bike = ({ bike }) => {
     return (
         <div>
             <ImageSlider slides={slides}/>
+            <br />
+            <p>{bike.make} {bike.model}</p>
+            <p>{bike.description}</p>
         </div>
     )
 };
