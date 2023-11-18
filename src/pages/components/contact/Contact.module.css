@@ -1,0 +1,73 @@
+*{
+  box-sizing: border-box;
+}
+
+.contactFormContainer {
+  text-align: center;
+  margin: 0;
+  padding: 100px;
+}
+
+form{
+  display: block;
+  background-color: #efefef;
+  box-shadow: 1px 1px 3px 2px #ddd;
+  margin: 40px auto;
+  max-width: 800px;
+  max-height: 1000px;
+  padding: 20px;
+}
+
+form input, textarea{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: 24px auto;
+  padding: 10px;
+  font-family: 'Montserrat', sans-serif;
+  background-color: #ddd;
+  border: #ddd;
+  border-radius: 5px;
+}
+
+form span{
+  color: royalblue;
+}
+
+form button{
+  height: 25px;
+  width: 60px;
+  align-items: center;
+  border: none;
+  background-color: rgb(164, 164, 164);
+  color: #fff;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+form button:hover{
+  background-color: rgb(140, 140, 140);
+}
+
+p .formSendMessage{
+  text-align: center;
+  background-color: red;
+}
+
+@media screen and (max-width: 720px) {
+  form{
+    display: block;
+    background-color: #efefef;
+    box-shadow: 1px 1px 3px 2px #ddd;
+    margin: 2% auto;
+    max-width: 800px;
+    max-height: 1000px;
+    padding: 10px;
+  }
+
+  .contactFormContainer {
+    text-align: center;
+    margin: 0;
+    padding: 50px;
+  }
+}

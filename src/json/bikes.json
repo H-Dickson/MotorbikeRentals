@@ -1,0 +1,39 @@
+[
+    {
+        "id": 0,
+        "make": "BMW",
+        "model": "GS",
+        "year": 2015,
+        "colour": "red",
+        "image":[ "redgs.jpg","Honda.jpg","redgs.jpg","redgs.jpg"],
+        "description": "This is a red BMW GS 2015"
+    },
+    {
+        "id": 1,
+        "make": "Honda",
+        "model": "Rebel",
+        "year": 2020,
+        "colour": "Red",
+        "image": ["Honda.jpg","Honda.jpg","Honda.jpg","Honda.jpg"],
+        "description": "This is a blue Honda CBR 2020"
+    },
+    {
+        "id": 2,
+        "make": "BMW",
+        "model": "GS",
+        "year": 2018,
+        "colour": "black",
+        "image": ["images.jpeg","images.jpeg","images.jpeg","images.jpeg"],
+        "description": "This is a black BMW GS 2018"
+    },
+
+    {
+        "id": 3,
+        "make": "Suzuki",
+        "model": "DL650",
+        "year": 2019,
+        "colour": "yellow",
+        "image": ["suzuki.jpg","suzuki.jpg","suzuki.jpg","suzuki.jpg"],
+        "description": "This is a yellow Suzuki GSX-R 2019"
+    }
+]

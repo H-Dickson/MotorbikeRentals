@@ -1,0 +1,99 @@
+.find{
+    max-width: 1040px;
+    margin: auto;
+}
+
+.heading h1{
+    font-size: 2rem;
+    text-align: center;
+    padding: 2rem;
+}
+
+.heading p {
+    text-align: center;
+}
+
+.text_bg{
+    background: rgba(173, 188, 255, 0.502);
+    height: 30px;
+    max-width: 600px;
+    margin: auto;
+    position: absolute;
+    left: 0;
+    right: 0;
+}
+
+.text_bg p {
+    font-size: 1.4rem;
+    margin-top: -.6rem;
+}
+
+.slider_container{
+    padding: 5rem 0;
+}
+
+.container{
+    display: flex;
+    justify-content:center;
+    
+}
+
+.card {
+    position: relative;
+    width: 200px; /* Adjust the width as needed */
+    height: 200px; /* Ensure a square container */
+    margin: 0 50px;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .card img {
+    border-radius: 50%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensure the image covers the entire container */
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .card p {
+    opacity: 0;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    margin: 0;
+  }
+  
+  .card:hover img {
+    transform: scale(1.1); /* Adjust the scale as needed */
+  }
+
+.btn_container{
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+  .btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    margin-top: 10px; /* Adjust the margin as needed */
+    background-color: #f4f4f4; /* Background color for the box */
+    color: black; /* Text color for the link */
+    text-decoration: none;
+    border-radius: 15px; /* Adjust border radius as needed */
+  }
+  
+
+
+ .btn:hover {
+    background-color: #d8d8d8; /* Choose a darker shade or a different color for hover */
+  }
+
+  .background{
+    position: absolute;
+    width: 100%;
+  }
