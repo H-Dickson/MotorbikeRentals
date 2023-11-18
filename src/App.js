@@ -6,6 +6,7 @@ import BikesPage from './pages/BikesPage';
 import BikePage from './pages/BikePage';
 import AboutPage from './pages/AboutPage';
 import ContactPage from './pages/ContactPage';
+import Schema from './Schema';
 import styles from './App.module.css'; // Import your CSS Module
 
 function App() {
@@ -37,6 +38,7 @@ function App() {
 
   return (
     <div >
+      <Schema />
       <Navbar />
       <div className={styles.fadeIn}>
         {Component}
