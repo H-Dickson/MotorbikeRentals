@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Navbar from './pages/components/navbar/Navbar';
+import Footer from './pages/components/footer/Footer';
 import HomePage from './pages/HomePage';
 import BikesPage from './pages/BikesPage';
 import BikePage from './pages/BikePage';
@@ -48,6 +49,7 @@ function App() {
       <div className={shouldFadeIn ? `${styles.fadeIn}` : `${styles.hideContent}`}>
         {Component}
       </div>
+      <Footer />
     </div>
   );
 }

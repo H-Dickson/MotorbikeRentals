@@ -12,29 +12,6 @@ const slideStyles = {
 };
 
 
-const rightArrowStyles = {
-  position: "absolute",
-  top: "50%",
-  transform: "translate(0, -50%)",
-  right: "0px",
-  fontSize: "55px",
-  color: "#000",
-  zIndex: 1,
-  cursor: "pointer",
-  backgroundcolor: "rgba(0,0,0,0)",
-};
-
-const leftArrowStyles = {
-  position: "absolute",
-  top: "50%",
-  transform: "translate(0, -50%)",
-  left: "0px",
-  fontSize: "55px",
-  color: "#000",
-  zIndex: 1,
-  cursor: "pointer",
-};
-
 const sliderStyles = {
   position: "relative",
   height: "100%",
@@ -56,13 +33,19 @@ const dotStyle = {
 const ImageSlider = ({ slides }) => {
    const [currentIndex, setCurrentIndex] = useState(0);
    const [sliderHeight, setSliderHeight] = useState("50vh"); // Initial height
+   const [iconColor, setIconColor] = useState("black"); // Initial color
+   const [iconSize, setIconSize] = useState("55px"); // Initial distance
    const [opacity, setOpacity] = useState(1);
  
    const updateSliderHeight = () => {
      if (window.innerWidth < 800) {
        setSliderHeight("30vh");
+       setIconColor("#ccc");
+       setIconSize("40px");
      } else {
        setSliderHeight("50vh");
+       setIconColor("black");
+         setIconSize("55px");
      }
    };
  
@@ -106,6 +89,30 @@ const ImageSlider = ({ slides }) => {
   const goToSlide = (slideIndex) => {
     setCurrentIndex(slideIndex);
   };
+
+  const rightArrowStyles = {
+   position: "absolute",
+   top: "50%",
+   transform: "translate(0, -50%)",
+   right: "0px",
+   fontSize: iconSize,
+   color: iconColor,
+   zIndex: 1,
+   cursor: "pointer",
+   backgroundcolor: "rgba(0,0,0,0)",
+ };
+ 
+ const leftArrowStyles = {
+   position: "absolute",
+   top: "50%",
+   transform: "translate(0, -50%)",
+   left: "0px",
+   fontSize: iconSize,
+   color: iconColor,
+   zIndex: 1,
+   cursor: "pointer",
+ };
+
   const slideStylesWidthBackground = {
     ...slideStyles,
     height: sliderHeight,
