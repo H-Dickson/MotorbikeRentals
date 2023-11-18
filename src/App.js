@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import Navbar from './pages/components/navbar/Navbar';
 import Footer from './pages/components/footer/Footer';
 import HomePage from './pages/HomePage';
@@ -9,15 +9,7 @@ import ContactPage from './pages/ContactPage';
 import styles from './App.module.css'; // Import your CSS Module
 
 function App() {
-  const [shouldFadeIn, setShouldFadeIn] = useState(false);
 
-  useEffect(() => {
-    // After the component mounts, set shouldFadeIn to true after a delay
-    const timeout = setShouldFadeIn(true);
-      // Set the delay time in milliseconds
-
-    
-  }, []);
 
   let Component;
   switch (window.location.pathname) {
@@ -46,7 +38,7 @@ function App() {
   return (
     <div >
       <Navbar />
-      <div className={shouldFadeIn ? `${styles.fadeIn}` : `${styles.hideContent}`}>
+      <div className={styles.fadeIn}>
         {Component}
       </div>
       <Footer />
