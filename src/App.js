@@ -11,7 +11,6 @@ import styles from './App.module.css'; // Import your CSS Module
 
 function App() {
 
-
   let Component;
   switch (window.location.pathname) {
     case "/":
